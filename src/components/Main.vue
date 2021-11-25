@@ -1,38 +1,42 @@
 <template>
-  <main>
-    <div class="container">
-        <div class="row">
-            <div 
-                v-for="(album, index) in albumList"
-                :key="`album-${index}`"
-                class="col card"
-            >
-                <div class="cover-container">
-                    <img :src="album.poster" :alt="album.title">
-                </div>
-                <h2>
-                    {{ album.title }}
-                </h2>
-                <div>
-                    {{ album.author }}
-                </div>
-                <div>
-                    {{ album.year }}
-                </div>
-                <div>
-                    {{ album.genre }}
+    <main>
+        <div class="container">
+            <div class="row">
+                <div
+                    v-for="(album, index) in albumList"
+                    :key="`album-${index}`"
+                    class="col card"
+                >
+                    <div class="card-content">
+                        <div class="cover-container">
+                            <img :src="album.poster" :alt="album.title" />
+                        </div>
+                        <div class="card-text">
+                            <h3 class="title">
+                            {{ album.title }}
+                            </h3>
+                            <div class="author">
+                                {{ album.author }}
+                            </div>
+                            <div class="year">
+                                {{ album.year }}
+                            </div>
+                            <div class="genre">
+                                {{ album.genre }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-  </div>
-  </main>
+    </main>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-    name: 'Main',
+    name: "Main",
     data() {
         return {
             albumList: [],
@@ -46,13 +50,14 @@ export default {
             /**
              * Get album list from api
              */
-            axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-            .then(result => {
-                console.log(result.data);
-                this.albumList = result.data.response;
-            })
-            .catch(err => console.log(err));
-        }
+            axios
+                .get("https://flynn.boolean.careers/exercises/api/array/music")
+                .then((result) => {
+                    console.log(result.data);
+                    this.albumList = result.data.response;
+                })
+                .catch((err) => console.log(err));
+        },
     },
 };
 </script>
@@ -70,31 +75,48 @@ main {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            align-content: center;
             .card {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                width: calc(100% / 8);
+                padding: 1rem;
+                .card-content {
                     display: flex;
                     flex-direction: column;
-                    /* height: 300px; */
-                    /* width: 200px; */
-                    align-content: center;
-                    justify-content: center;
-                    align-items: center;
-                    text-align: center;
-                    background-color: #2E3A46;
-                    margin: 1rem 1rem;
-                    width: calc(100% / 8 - 2rem);
+                    background-color: #2e3a46;
                     padding: 1rem;
                     height: 100%;
+                }
+                .card-text {
+                    align-self: center;
+                    justify-self: flex-end;
+                }
+                .title {
+                    color: white;
+                    text-transform: uppercase;
+                    padding: 1rem 0;
+                    font-weight: 200;
+                }
+                .author {
+                    color: #717075;
+                    padding: 5px 0;
+                }
+                .year {
+                    color: #717075;
+                    padding: 5px 0;
+                }
+                .genre {
+                    color: white;
+                    padding-top: 5px;
+                }
                 .cover-container {
-                    height: 162px;
-                    width: 150px;
                     overflow: hidden;
                     img {
                         width: 100%;
                     }
                 }
-            }       
+            }
         }
     }
 }
