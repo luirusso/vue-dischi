@@ -7,24 +7,24 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Main from './components/Main.vue'
+import Header from './components/Header.vue';
+import Main from './components/Main.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
     Main,
-
-
   }
 }
 </script>
 
 <style lang="scss">
+@import './styles/globals';
 
-@import '~bootstrap/scss/bootstrap.scss';
-@import '@/styles/general';
-@import '@/styles/utilities';
-
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 </style>
