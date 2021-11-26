@@ -5,11 +5,14 @@
         </a>
         <div>
             <label for="genre">Filtra per genere</label>
-            <select id="genre">
-                <option value="volvo">Pop</option>
-                <option value="saab">Rock</option>
-                <option value="mercedes">Metal</option>
-                <option value="audi">Jazz</option>
+            <select 
+            v-model="filterGenre"
+            @click="$emit('performFilter', filterGenre)"
+            id="genre">
+                <option value="pop">Pop</option>
+                <option value="rock">Rock</option>
+                <option value="metal">Metal</option>
+                <option value="jazz">Jazz</option>
             </select>
         </div>
     </header>
@@ -18,6 +21,11 @@
 <script>
 export default {
     name: "Header",
+    data() {
+      return {
+        filterGenre: '',
+      }
+    }
 };
 </script>
 

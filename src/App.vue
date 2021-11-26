@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header @performFilter="filterGenres" />
 
     <Main :albums="albumList" />
   </div>
@@ -38,6 +38,9 @@ export default {
                 })
                 .catch((err) => console.log(err));
         },
+        filterGenres() {
+          console.log('Init evento')
+        }
     },
 }
 </script>
