@@ -5,7 +5,6 @@
         </a>
         <div>
             <label for="genre">Filtra per genere</label>
-
             <select id="genre">
                 <option value="volvo">Pop</option>
                 <option value="saab">Rock</option>
@@ -35,13 +34,14 @@ header {
         max-width: 48px;
     }
     label {
-      padding-right: 20px;
+        padding-right: 20px;
     }
     select {
-      padding: 0.5rem 5rem;
-      border-radius: 10px;
-      background-color: #1D2D3C;
-      color: white;
+        padding: 0.5rem 5rem;
+        border-radius: 10px;
+        background-color: #1d2d3c;
+        color: white;
+        cursor: pointer;
     }
 }
 </style>

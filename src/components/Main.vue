@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div
-                    v-for="(album, index) in albumList"
+                    v-for="(album, index) in albums"
                     :key="`album-${index}`"
                     class="col card"
                 >
@@ -13,7 +13,7 @@
                         </div>
                         <div class="card-text">
                             <h3 class="title">
-                            {{ album.title }}
+                                {{ album.title }}
                             </h3>
                             <div class="author">
                                 {{ album.author }}
@@ -33,32 +33,11 @@
 </template>
 
 <script>
-import axios from "axios";
-
-export default {
+    export default {
     name: "Main",
-    data() {
-        return {
-            albumList: [],
-        };
-    },
-    created() {
-        this.getAlbums();
-    },
-    methods: {
-        getAlbums() {
-            /**
-             * Get album list from api
-             */
-            axios
-                .get("https://flynn.boolean.careers/exercises/api/array/music")
-                .then((result) => {
-                    console.log(result.data);
-                    this.albumList = result.data.response;
-                })
-                .catch((err) => console.log(err));
-        },
-    },
+    props: {
+        albums: Array,
+    }
 };
 </script>
 
