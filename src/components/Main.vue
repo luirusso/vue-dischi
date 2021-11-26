@@ -65,7 +65,7 @@ main {
                     flex-direction: column;
                     background-color: #2e3a46;
                     padding: 1rem;
-                    height: 100%;
+                    height: 400px;
                 }
                 .card-text {
                     align-self: center;
