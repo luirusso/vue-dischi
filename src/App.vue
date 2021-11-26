@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header @performFilter="filterGenres" />
+    <Header @performFilter="filterGenre" />
 
-    <Main :albums="albumList" />
+    <Main :albums="filteredGenre" />
   </div>
 </template>
 
@@ -20,7 +20,19 @@ export default {
   data() {
         return {
             albumList: [],
+            filterInput: '',
         };
+    },
+    computed: {
+      filteredGenre() {
+        if(this.filterInput === '') {
+          return this.albumList;
+        }
+
+        return this.albumList.filter(item => {
+          return item.genre.includes(this.filterInput);
+        });
+      }
     },
     created() {
         this.getAlbums();
@@ -38,8 +50,9 @@ export default {
                 })
                 .catch((err) => console.log(err));
         },
-        filterGenres() {
-          console.log('Init evento')
+        filterGenre(text) {
+          console.log(text);
+          this.filterInput = text;
         }
     },
 }

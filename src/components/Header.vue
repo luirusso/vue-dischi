@@ -6,13 +6,14 @@
         <div>
             <label for="genre">Filtra per genere</label>
             <select 
-            v-model="filterGenre"
-            @click="$emit('performFilter', filterGenre)"
+            v-model="filterInput"
+            @change="$emit('performFilter', filterInput)"
             id="genre">
-                <option value="pop">Pop</option>
-                <option value="rock">Rock</option>
-                <option value="metal">Metal</option>
-                <option value="jazz">Jazz</option>
+                <option value="">Nessun filtro</option>
+                <option value="Pop">Pop</option>
+                <option value="Rock">Rock</option>
+                <option value="Metal">Metal</option>
+                <option value="Jazz">Jazz</option>
             </select>
         </div>
     </header>
@@ -23,7 +24,7 @@ export default {
     name: "Header",
     data() {
       return {
-        filterGenre: '',
+        filterInput: '',
       }
     }
 };
@@ -45,11 +46,11 @@ header {
         padding-right: 20px;
     }
     select {
-        padding: 0.5rem 5rem;
-        border-radius: 10px;
-        background-color: #1d2d3c;
-        color: white;
-        cursor: pointer;
+      padding: 0.5rem 5rem;
+      border-radius: 10px;
+      background-color: #1d2d3c;
+      color: white;
+      cursor: pointer;
     }
 }
 </style>
