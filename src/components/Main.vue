@@ -7,26 +7,12 @@
                     :key="`album-${index}`"
                     class="col card"
                 >   
-                    <Cardprop :image="album.poster" :title="album.title" :author="album.author" :year="album.year" :genre="album.genre"/>
-                    <!-- <div class="card-content">
-                        <div class="cover-container">
-                            <img :src="album.poster" :alt="album.title" />
-                        </div>
-                        <div class="card-text">
-                            <h3 class="title">
-                                {{ album.title }}
-                            </h3>
-                            <div class="author">
-                                {{ album.author }}
-                            </div>
-                            <div class="year">
-                                {{ album.year }}
-                            </div>
-                            <div class="genre">
-                                {{ album.genre }}
-                            </div>
-                        </div>
-                    </div> -->
+                    <Cardprop :image="album.poster" 
+                    :title="album.title" 
+                    :author="album.author" 
+                    :year="album.year" 
+                    :genre="album.genre"/>
+                    
                 </div>
             </div>
         </div>
