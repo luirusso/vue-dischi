@@ -6,8 +6,9 @@
                     v-for="(album, index) in albums"
                     :key="`album-${index}`"
                     class="col card"
-                >
-                    <div class="card-content">
+                >   
+                    <Cardprop :image="album.poster" :title="album.title" :author="album.author" :year="album.year" :genre="album.genre"/>
+                    <!-- <div class="card-content">
                         <div class="cover-container">
                             <img :src="album.poster" :alt="album.title" />
                         </div>
@@ -25,7 +26,7 @@
                                 {{ album.genre }}
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -33,8 +34,13 @@
 </template>
 
 <script>
+import Cardprop from '../components/Cardprop.vue';
+
     export default {
     name: "Main",
+    components: {
+        Cardprop,
+    },
     props: {
         albums: Array,
     }
@@ -60,41 +66,41 @@ main {
                 text-align: center;
                 width: calc(100% / 8);
                 padding: 1rem;
-                .card-content {
-                    display: flex;
-                    flex-direction: column;
-                    background-color: #2e3a46;
-                    padding: 1rem;
-                    height: 400px;
-                }
-                .card-text {
-                    align-self: center;
-                    justify-self: flex-end;
-                }
-                .title {
-                    color: white;
-                    text-transform: uppercase;
-                    padding: 1rem 0;
-                    font-weight: 200;
-                }
-                .author {
-                    color: #717075;
-                    padding: 5px 0;
-                }
-                .year {
-                    color: #717075;
-                    padding: 5px 0;
-                }
-                .genre {
-                    color: white;
-                    padding-top: 5px;
-                }
-                .cover-container {
-                    overflow: hidden;
-                    img {
-                        width: 100%;
-                    }
-                }
+                // .card-content {
+                //     display: flex;
+                //     flex-direction: column;
+                //     background-color: #2e3a46;
+                //     padding: 1rem;
+                //     height: 400px;
+                // }
+                // .card-text {
+                //     align-self: center;
+                //     justify-self: flex-end;
+                // }
+                // .title {
+                //     color: white;
+                //     text-transform: uppercase;
+                //     padding: 1rem 0;
+                //     font-weight: 200;
+                // }
+                // .author {
+                //     color: #717075;
+                //     padding: 5px 0;
+                // }
+                // .year {
+                //     color: #717075;
+                //     padding: 5px 0;
+                // }
+                // .genre {
+                //     color: white;
+                //     padding-top: 5px;
+                // }
+                // .cover-container {
+                //     overflow: hidden;
+                //     img {
+                //         width: 100%;
+                //     }
+                // }
             }
         }
     }
